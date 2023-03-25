@@ -1,0 +1,348 @@
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        int opcion_inicial = 0;
+        int op = 0;
+        double inter = 0, s = 0;
+        do
+        {
+            Console.Clear();
+            Console.WriteLine("-----MENU------");
+            Console.WriteLine("1.Calculo de Aumento Salarial");
+            Console.WriteLine("2.Cobros por llamada");
+            Console.WriteLine("3.Facturacion Restaurante");
+            Console.WriteLine("4. Salir");
+            Console.WriteLine("Elija opcion: ");
+            opcion_inicial = int.Parse(Console.ReadLine());
+
+            switch (opcion_inicial)
+            {
+                case 1:
+                    double salario, reajuste, novoSalario, percentual;
+                    int opcion1 = 0;
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Ingresa tu salario");
+                        salario = Convert.ToDouble(Console.ReadLine());
+
+
+                        if (salario < 0)
+                        {
+
+                            Console.WriteLine("No puede ser negativo");
+                            Console.ReadKey();
+                        }
+                        else if (salario >= 0.00 && salario < 3000.00)
+                        {
+                            reajuste = salario * 0.15;
+                            novoSalario = salario + reajuste;
+                            percentual = 15;
+                            Console.WriteLine("Novo salario: {0:0.00}", novoSalario);
+                            Console.WriteLine("Reajuste gano: {0:0.00}", reajuste);
+                            Console.WriteLine("Em percentual: {0} %", percentual);
+                            Console.ReadKey();
+
+                        }
+                        else if (salario >= 3000.00 && salario <= 5000.00)
+                        {
+                            reajuste = salario * 0.10;
+                            novoSalario = salario + reajuste;
+                            percentual = 10;
+                            Console.WriteLine("Novo salario: {0:0.00}", novoSalario);
+                            Console.WriteLine("Reajuste gano: {0:0.00}", reajuste);
+                            Console.WriteLine("Em percentual: {0} %", percentual);
+                            Console.ReadKey();
+                        }
+                        else if (salario > 5000.00)
+                        {
+                            reajuste = salario * 0.075;
+                            novoSalario = salario + reajuste;
+                            percentual = 7.5;
+                            Console.WriteLine("Novo salario: {0:0.00}", novoSalario);
+                            Console.WriteLine("Reajuste gano: {0:0.00}", reajuste);
+                            Console.WriteLine("Em percentual: {0} %", percentual);
+                            Console.ReadKey();
+                        }
+
+                        else
+                        {
+                            return;
+                        }
+
+                        Console.Clear();
+                        Console.WriteLine("Desea ingresar otro salario:");
+                        Console.WriteLine("1. si");
+                        Console.WriteLine("2. no");
+                        opcion1 = int.Parse(Console.ReadLine());
+                    } while (opcion1 == 1);
+
+
+                    break;
+                case 2:
+
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++");
+                        Console.WriteLine("\t\tBIENBENIDO AL SISTEMA DE LLAMADAS");
+                        Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++");
+                        Console.WriteLine("\n\tSeleccione la opción que desea consultar: ");
+                        Console.WriteLine("1.Llamadas internacionales.");
+                        Console.WriteLine("2.Llamadas Nacionales.");
+                        Console.WriteLine("3.Llamadas Locales.");
+                        op = int.Parse(Console.ReadLine());
+
+                        switch (op)
+                        {
+                            case 1:
+
+                                Console.Clear();
+                                Console.WriteLine("\tUSTED SELECCIONÓ LA OPICON DE LLAMADAS INTERNACIONALES");
+                                Console.WriteLine("Ingrese la cantidad de minutos hablados");
+                                inter = double.Parse(Console.ReadLine());
+
+                                if (inter < 0)
+                                {
+                                    Console.WriteLine("CANTIDAD INVAILDIA");
+                                    Console.ReadKey();
+                                }
+                                else if (inter <= 1)
+                                {
+                                    double totint = 2;
+
+                                    Console.Write("TOTAL A PAGA= Q." + totint + "-°°");
+                                    Console.ReadKey();
+                                }
+                                else
+                                {
+                                    double totintgen = 0;
+
+                                    totintgen = 3 * inter - 1;
+                                    Console.Write("PRIMER MINUTO= Q.2.°°");
+                                    Console.Write("\nTOTAL A PAGAR= Q." + totintgen + ".°°");
+                                    Console.ReadKey();
+                                }
+                                break;
+
+                            case 2:
+
+                                Console.Clear();
+                                Console.WriteLine("\tUSTED SELECCIONÓ LA OPICON DE LLAMADAS NACIONALES");
+                                Console.WriteLine("Ingrese la cantidad de minutos hablados");
+                                inter = double.Parse(Console.ReadLine());
+
+                                if (inter < 0)
+                                {
+                                    Console.WriteLine("CANTIDAD INVAILDIA");
+                                    Console.ReadKey();
+
+                                }
+                                else if (inter <= 1)
+                                {
+                                    double totint = 1.50;
+
+                                    Console.Write("TOTAL A PAGA= Q." + totint);
+                                    Console.ReadKey();
+                                }
+                                else
+                                {
+                                    double totintgen = 0;
+
+                                    totintgen = 2 * inter - 0.50;
+                                    Console.Write("PRIMER MINUTO= Q.1.50");
+                                    Console.Write("\nTOTAL A PAGAR= Q." + totintgen);
+                                    Console.ReadKey();
+                                }
+                                break;
+
+                            case 3:
+                                Console.Clear();
+                                Console.WriteLine("\tUSTED SELECCIONÓ LA OPICON DE LLAMADAS LOCALES");
+                                Console.WriteLine("Ingrese la cantidad de minutos hablados");
+                                inter = double.Parse(Console.ReadLine());
+                                if (inter < 0)
+                                {
+                                    Console.WriteLine("CANTIDAD INVAILDIA");
+                                    Console.ReadKey();
+
+                                }
+                                else if (inter <= 1)
+                                {
+                                    double totint = 0.50;
+
+                                    Console.Write("TOTAL A PAGA= Q." + totint);
+                                    Console.ReadKey();
+                                }
+                                else
+                                {
+                                    double totintgen = 0;
+
+                                    totintgen = 1 * inter - 0.50;
+                                    Console.Write("PRIMER MINUTO= Q.0.50");
+                                    Console.Write("\nTOTAL A PAGAR= Q." + totintgen);
+                                    Console.ReadKey();
+                                }
+                                break;
+
+
+
+                        }
+                        Console.Clear();
+                        Console.WriteLine("Desea consultar otro cobro de llamadas");
+                        Console.WriteLine("1. SI");
+                        Console.WriteLine("2. NO");
+                        s = int.Parse(Console.ReadLine());
+                    } while (s != 2);
+
+                    break;
+
+                case 3:
+                    int opcion_3 = 0, num_desayunos = 0, almuerzos = 0, cenas = 0, bebidas = 0;
+                    double subtotal = 0, total = 0, descuento = 0, sub = 0;
+                    string nombre = "", apellido = "", NIT = "", pedido = "";
+                    string minuscula = "";
+                    Console.Clear();
+                    Console.WriteLine("Ingrese su nombre: ");
+                    nombre = Console.ReadLine();
+                    Console.WriteLine("Ingrese su apellido: ");
+                    apellido = Console.ReadLine();
+                    Console.WriteLine("Ingrese su NIT: ");
+                    NIT = Console.ReadLine();
+
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("MENU RESTAURANTE");
+                        Console.WriteLine("1. Desayunos\tQ. 30.00");
+                        Console.WriteLine("2. Almuerzos\tQ. 75.00");
+                        Console.WriteLine("3. Cenas\tQ. 25.00");
+                        Console.WriteLine("4. Bebidas\tQ. 5.00");
+                        Console.WriteLine("5. Salir");
+                        Console.WriteLine("Elija una opcion");
+                        opcion_3 = int.Parse(Console.ReadLine());
+                        switch (opcion_3)
+                        {
+                            case 1:
+                                Console.Clear();
+                                Console.WriteLine("DESAYUNOS");
+                                Console.WriteLine("Cuantos desayunos va a llevar?");
+                                num_desayunos = int.Parse(Console.ReadLine());
+                                if (num_desayunos < 0)
+                                {
+                                    Console.WriteLine("No puede ser negativa");
+                                }
+                                else
+                                {
+                                    subtotal = num_desayunos * 30;
+                                }
+                                break;
+                            case 2:
+                                Console.Clear();
+                                Console.WriteLine("ALMUERZOS");
+                                Console.WriteLine("Cuantos almuerzos va a llevar?");
+                                almuerzos = int.Parse(Console.ReadLine());
+                                if (almuerzos < 0)
+                                {
+                                    Console.WriteLine("No puede ser negativa");
+                                }
+                                else
+                                {
+                                    subtotal = almuerzos * 75;
+                                }
+
+                                break;
+                            case 3:
+                                Console.Clear();
+                                Console.WriteLine("CENAS");
+                                Console.WriteLine("Cuantos cenas va a llevar?");
+                                cenas = int.Parse(Console.ReadLine());
+                                if (cenas < 0)
+                                {
+                                    Console.WriteLine("No puede ser negativa");
+                                }
+                                else
+                                {
+                                    subtotal = cenas * 25;
+                                }
+
+                                break;
+                            case 4:
+                                Console.Clear();
+                                Console.WriteLine("DESAYUNOS");
+                                Console.WriteLine("Cuantos desayunos va a llevar?");
+                                bebidas = int.Parse(Console.ReadLine());
+                                if (bebidas < 0)
+                                {
+                                    Console.WriteLine("No puede ser negativa");
+                                }
+                                else
+                                {
+                                    subtotal = bebidas * 5;
+                                }
+
+                                break;
+                            case 5:
+                                break;
+                        }
+                        sub = sub + subtotal;
+                        Console.WriteLine("Desea hacer otro pedido?   si/no");
+                        pedido = Console.ReadLine();
+                        minuscula = pedido.ToLower();
+                    } while (minuscula == "si");
+
+                    if (subtotal > 0 && subtotal < 26)
+                    {
+
+                        descuento = sub * 0.10;
+                        total = sub - descuento;
+
+
+                    }
+                    else if (subtotal > 25 && subtotal < 51)
+                    {
+
+                        descuento = sub * 0.12;
+                        total = sub - descuento;
+
+                    }
+                    else if (subtotal > 50 && subtotal < 76)
+                    {
+                        descuento = sub * 0.15;
+                        total = sub - descuento;
+                    }
+                    else if (subtotal > 75 && subtotal < 100)
+                    {
+                        descuento = sub * 0.17;
+                        total = sub - descuento;
+                    }
+                    else if (subtotal > 100)
+                    {
+                        descuento = sub * 0.20;
+                        total = sub - descuento;
+                    }
+
+                    Console.Clear();
+                    Console.WriteLine("=========================================================================");
+                    Console.WriteLine("                         FACTURA DEL CLIENTE");
+                    Console.WriteLine("=========================================================================");
+                    Console.WriteLine("Nombre: " + nombre + " " + apellido);
+                    Console.WriteLine("NIT: " + NIT);
+                    Console.WriteLine("-------------------------------------------------------------------------");
+                    Console.WriteLine("" + num_desayunos + " Desayuno (s) de Q. 30.00");
+                    Console.WriteLine("" + almuerzos + " Almuerzo (s) de Q. 75.00");
+                    Console.WriteLine("" + cenas + " Cena (s) de Q. 25.00");
+                    Console.WriteLine("" + bebidas + " bebida(s) de Q. 5.00");
+                    Console.WriteLine("               Monto gastado:                  " + sub);
+                    Console.WriteLine("               Decuento aplicado:              " + descuento);
+                    Console.WriteLine("               Monto a pagar:                  " + total);
+                    Console.WriteLine("=========================================================================");
+                    Console.ReadKey();
+                    break;
+                case 4:
+                    Console.WriteLine("Saliendo del programa");
+                    break;
+            }
+        } while (opcion_inicial != 4);
+    }
